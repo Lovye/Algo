@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索</title>
+    <link rel="icon" href="https://icpc.global/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/general.css">
+</head>
+<body>
+    <div id="nav">
+        <button id="index" data-url="index.html">算法</button>
+        <button id="search" data-url="search.html">搜索</button>
+        <button id="greedy" data-url="greedy.html">贪心</button>
+        <button id="math" data-url="math.html">数论</button>
+        <button id="dp" data-url="dp.html">动态规划</button>
+        <button id="graph" data-url="graph.html">图论</button>
+    </div>
+    <div id="content">
+        <div id="left">
+            <button id="welcome" data-url="index.html">欢迎</button>
+            <button id="about" data-url="index/about.html">关于ACM</button>
+            <button id="time-complexity" data-url="index/time-complexity.html">算法复杂度</button>
+            <button id="board-xcpc" data-url="https://board.xcpcio.com/">Board-XCPC</button>
+            <button id="icpc" data-url="https://icpc.global/">ICPC</button>
+        </div>
+        <div id="context">
+            <h3>二分搜索</h3>
+            <div class="text">
+                <p class="border">二分搜索（binary search），也称折半搜索。是一种在有序数组中查找某一特定元素的搜索算法。
+                    搜索过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则搜索过程结束；
+                    如果某一特定元素大于或者小于中间元素，则在数组大于或小于中间元素的那一半中查找，
+                    而且跟开始一样从中间元素开始比较。如果在某一步骤数组为空，则代表找不到。
+                    这种搜索算法每一次比较都使搜索范围缩小一半。算法的复杂度为O(log n)。</p>
+            </div>
+            <div class="text">
+                <li>binary search(最基础的二分)</li>
+                <p class="text-border">给定一个有序的数组 nums[n] (假设为升序的，降序的同理)，查找目标值。分别设置左右边界为数组的两端，l = 0, r = n - 1。每次取得左右边界
+                    的中点 mid = (l + r) / 2。如果目标值大于了 nums[mid] ，那么可以知道在小于mid的区间的数都比目标值小，就更新左区间, l = mid + 1；否则更新右区间 r = mid - 1。不断重复
+                    这个过程，直到 l > r。
+                </p>
+                <li>upper bound</li>
+                <p class="text-border">
+                    给定一个有序的数组 nums[n] (假设为升序的，降序的同理)，查找nums[i] <= 目标值的最大下标i。分别设置左右边界为 l = 0, r = n - 1。
+                    每次取左右边界的中点 mid = (l + r) / 2。如果 nums[mid] <= 目标值，那么就更新有边界 r = mid；否则更新左边界 l = mid。不断重复
+                    操作，直到 r - l < 1。
+                </p>
+                <li>lower bound</li>
+                <p class="text-border">
+                    给定一个有序的数组 nums[n] (假设为升序的，降序的同理)，查找nums[i] >= 目标值的最小下标i。分别设置左右边界为 l = 0, r = n - 1。
+                    每次取左右边界的中点 mid = (l + r) / 2。如果 nums[mid] >= 目标值，那么就更新有边界 r = mid；否则更新左边界 l = mid。不断重复
+                    操作，直到 r - l < 1。 
+                </p>
+                <br />
+                <p>如果想要详细学习请移步到<a href="http://t.csdn.cn/Fkofy" target="_blank">算法入门之穷竭搜索</a>我会不定期更新</p>
+            </div>
+            <br />
+            <h3>DFS（深度优先搜索）</h3>
+            <div class="text">
+                <p class="border">DFS是学习搜索过程中绕不开的一个知识，虽然for循环也能实现搜索的操作，
+                    但是搜索的上限取决于for循环嵌套的个数，但是对于一个问题我们不可能去去写几十个for循环，
+                    而且也不能根据问题去不断的改变代码，这样并不现实。这个时候我们就要利用到DFS，
+                    DFS能利用递归搜索一个问题的所有状态。
+                </p>
+            </div>
+            <div class="text">
+                <br />
+                <p class="text-border">DFS本质上是一种状态的转移，从一个状态转移到另一个状态，从而不断的搜索
+                    问题的所有状态，时间复杂度为O(m ^ n)。其中m为状态数，n为数据的个数。
+                </p>
+            </div>
+            <br />
+            <h3>BFS（宽度优先搜索）</h3>
+            <div class="text">
+                <p class="border">BFS和DFS类似，所不同的就是每次的状态转移，DFS是从一个状态不断的往下搜索，
+                    直到无法搜索了再改变状态继续搜索。BFS则是从一个状态出发，不断的搜索最近的状态，然后不断的
+                    向外搜索。
+                </p>
+            </div>
+            <br />
+            <div class="text">
+                <p class="text-border">BFS通常会配合队列使用，用队列来存储已经搜索的状态，使用这个状态的时候
+                    就将其弹出队列。
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+</html>

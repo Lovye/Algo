@@ -7,10 +7,25 @@
 .blue{
     color: rgb(13, 154, 255);
 }
+a{
+    color: rgb(13, 154, 255);
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
 .text{
     text-indent: 2rem;
     font-weight: lighter;
     text-align: justify;
+}
+.border{
+    border: 1px solid black;
+    background-color: rgb(240, 254, 254);
+}
+.text-border{
+    background-color: rgb(247, 244, 244);
+    box-shadow: 0 2px 8px rgb(0, 0, 0,0.2);
 }
 .img-pos{
     display: inline-block;

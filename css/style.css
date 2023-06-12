@@ -42,7 +42,7 @@ body{
 }
 #left > button:hover{
     cursor: pointer;
-    color: red;
+    color: rgb(104, 167, 255);
 }
 #context{
     flex-grow:10;
