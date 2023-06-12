@@ -1,0 +1,25 @@
+.red{
+    color:red;
+}
+.god{
+    color: gold;
+}
+.blue{
+    color: rgb(13, 154, 255);
+}
+.text{
+    text-indent: 2rem;
+    font-weight: lighter;
+    text-align: justify;
+}
+.img-pos{
+    display: inline-block;
+    position: relative;
+}
+.img-text{
+    position: absolute;
+    top:0;
+    font-weight: bolder;
+    left: 50%;
+    transform: translate(-50%,0);
+}
