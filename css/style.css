@@ -30,6 +30,8 @@ body{
     flex-direction: column;
 }
 #left > button{
+    padding-left: 1rem;
+    padding-right: 1rem; 
     height: 3rem;
     max-height: 10rem;
     background: none;

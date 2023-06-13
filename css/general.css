@@ -7,7 +7,7 @@
 .blue{
     color: rgb(13, 154, 255);
 }
-.orange{
+.purple{
     color: rgb(252, 160, 242);
 }
 
@@ -24,12 +24,9 @@ a{
 a:hover{
     text-decoration: underline;
 }
-button{
-   padding-left: 1rem;
-   padding-right: 1rem; 
-}
 
 .text{
+    line-height: 1.8rem;
     text-indent: 2rem;
     font-weight: lighter;
     text-align: justify;
@@ -38,6 +35,9 @@ button{
     padding: 1rem;
     box-shadow: 0 2px 5px rgb(95, 130, 130);
     background-color: rgb(240, 254, 254);
+}
+.text-back-gold{
+    background-color: rgb(252, 255, 84);
 }
 .text-border{
     padding: 1rem;
@@ -69,4 +69,8 @@ button{
 }
 .space{
     min-width: 20px;
+}
+.ps{
+    color: gray;
+    font-size: xx-small;
 }

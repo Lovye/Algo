@@ -27,7 +27,7 @@
         </div>
         <div id="context">
             <h3 class="text-shadow-blue">简介</h3>
-            <div class="text text-border">
+            <div class="text border">
                 <p>数学理论或在较旧的使用中，叫做算术，是专门研究整数的纯数学的分支。它有时被称为“数学女王”，
                 因为它在原理中的基础地位。数理论家研究质数以及由整数（例如有理数字）制成的对象的属性或定义为整数的概括（例如，代数整数）。</p>
                 <p>整数可以自己考虑或作为方程（Diophantine几何）的解决方案。通过研究以某种方式（分析数论）编码整数，素数或其他数论理论对象的分析对象
@@ -38,33 +38,122 @@
             <br />
             <h3 class="text-shadow-blue">实用结论</h3>
             <div>
-                <li class="orange">辗转相除法</li>
+                <li class="purple">辗转相除法</li>
                 <div class="text text-border">
                     <p>欧几里得算法又称辗转相除法，是指用于计算两个非负整数a，b的最大公约数。应用领域有数学和计算机两个方面。计算公式gcd(a,b) = gcd(b,a mod b)。</p>
                     <p>两个整数的最大公约数是能够同时整除它们的最大的正整数。辗转相除法基于如下原理：两个整数的最大公约数等于其中较小的数和两数相除余数的最大公约数。</p>
                     <p>欧几里得算法和扩展欧几里得算法可使用多种编程语言实现。</p>
+                    <p class="red">基于欧几里得算法，有一个扩展欧几里得算法，可以求解整数下的Ax + By = gcd(A,B)，有兴趣的同学可以去了解一下。</p>
                 </div>
                 <br />
                 <div class="text text-border">
                     <p>算法实现：</p>
-                    <p class="red">因为递归实现比较方便，所以这里以递归的方式来实现</p>
+                    <p><span class="text-back-gold">因为递归实现比较方便，所以这里以递归的方式来实现</span></p>
                     <p>int gcd(int a, int b)</p>
                     <p>{</p>
-                    <p>&nbsp&nbsp&nbsp&nbsp  if(a % b == 0) return b;</p>
-                    <p>&nbsp&nbsp&nbsp&nbsp  else return gcd(b, a % b);</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;  if(a % b == 0) return b;</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;  else return gcd(b, a % b);</p>
                     <p>}</p>
                     <p>另一种等价写法</p>
                     <p>int gcd(int a, int b)</p>
                     <p>{</p>
-                    <p>&nbsp&nbsp&nbsp&nbsp  if(b == 0) return a;</p>
-                    <p>&nbsp&nbsp&nbsp&nbsp  else return gcd(b, a % b);</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;  if(b == 0) return a;</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;  else return gcd(b, a % b);</p>
                     <p>}</p>
                 </div>
+                <li class="purple">算数基本定理</li>
+                <div class="text text-border">
+                    <p>算术基本定理可表述为：任何一个大于1的自然数 N,如果N不为质数，
+                        那么N可以唯一分解成有限个质数的乘积N=P1^a1 P2^a2 P3^a3......Pn^an，这里P1，P2，P3......Pn均为质数，
+                        其中指数ai是正整数。这样的分解称为 N 的标准分解式。最早证明是由欧几里得给出的，由陈述证明。
+                        此定理可推广至更一般的交换代数和代数数论。</p>
+                </div>
+                <br />
+                <div class="text text-border">
+                    <p class="red">实际应用：</p>
+                    <p>分解质因数</p>
+                    <p>给定一个大于等于2的整数，将其表示为其质因数的乘积。</p>
+                    <p><span class="text-back-gold">思路：由算数基本定理我们可以知道，这个整数如果是质数,那么就是这个数本身，
+                        如果不是质数，那么我们就可以从2开始判断是否能整除这个数，如果能，我们就不断用2去整除这个数
+                        直到不能整除了，我们就从3开始继续整除这个数，一直不断进行下去，直到这个数变成1，由算数基本定理的展开式我们
+                        可以知道，我们用来整除的数字必定是质数。
+                    </span></p>
+                    <p>实现的代码如下：</p>
+                    <p>int n;<span class="blue">//给定的整数n</span></p>
+                    <p>int i = 2;</p>
+                    <p>while(n > 1)</p>
+                    <p>{</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;if(n % i == 0) { printf("%d ", i)); n /= i; } </p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;else i++;</p>
+                    <p>}</p>
+                    <p>这里只给出了粗略的代码，具体细节可以自己优化</p>
+                </div>
+                <li class="purple">埃氏筛法</li>
+                <div class="text text-border">
+                    <p>埃拉托斯特尼筛法，简称埃氏筛，是一种由希腊数学家埃拉托斯特尼所提出的一种简单检定素数的算法。
+                        要得到自然数n以内的全部素数，必须把不大于根号n的所有素数的倍数剔除，剩下的就是素数。</p>
+                </div>
+                <br />
+                <div class="text text-border">
+                    <p class="red">为什么要用埃氏筛?</p>
+                    <p>我们知道，检测单个数是否是质数我们是从2一直枚举到根号n，看是否能整除n。这在检测单个数字的时候是完全够用的。
+                        但如果此时我们要检测k个数字是否是质数(k >= 1000000)的时候就比较吃力了，这个时候就可以用埃氏筛法了。</p>
+                    <p class="red">具体实现</p>
+                    <p>我们首先对所有要处理的数字进行标记，先全部标定为真。然后对1标定为假，2标定为真，从2开始不断循环，
+                        如果这个数为真，那么这个数的倍数就肯定不为质数，我们就把这个数所有的倍数都置为假（上限就是给的数的范围）
+                        最后就得到了一张是否是质数的表。算法的时间复杂度为O(nlognlogn)，这个复杂度在要求不是特别高的情况下，当作线性的也无妨。
+                    </p>
+                    <p><span class="text-back-gold">还有一种更优的算法，欧拉筛，时间复杂度为O(n)，有兴趣的同学可以去了解。</span></p>
+                    <p>实现的代码如下：</p>
+                    <p>int n;<span class="blue">//要检查的n个数字</span></p>
+                    <p>bool isprime[n + 1];</p>
+                    <p>void sieve()</p>
+                    <p>{</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;for(int i = 1; i <= n; i++) isprime[i] = true;</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;isprime[1] = false;</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;for(int i = 2; i <= n; i++)</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isprime[i]) {</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int j = 2; i * j <= n; j++) isprime[i * j] = false; }</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+                    <p>}</p>
+                </div>
+                <li class="purple">哥德巴赫猜想</li>
+                <div class="text text-border">
+                    <p>哥德巴赫猜想的欧拉版本为：任一大于2的偶数都可写成两个素数之和。(虽然还没证明成立，但在1e9的范围内我们可以当作成立的使用)</p>
+                    <p class="red">由此我们可以推导出一个重要的结论：若一个数为大于2的偶数，那么这个数最少可以用两个素数和表示，
+                        如果这个数是奇数，如果是素数，那么就只需要一个数字表示，如果不是素数，那么可以表示为(n - 3) + 3，
+                        因为(n - 3)是偶数，所以最少可以用两个素数表示，3也是素数，所以加起来就是最少可以用三个素数和表示。
+                    </p>
+                    <span class="ps">谁懂一个队三个人都不知道哥德巴赫猜想，赛场上跟无头苍蝇一样猜结论还是被一道题卡死的痛啊（捶胸顿足）</span>
+                </div>
+                <li class="purple">费马小定理</li>
+                <div class="text text-border">
+                    <p>费马小定理(Fermat's little theorem)是数论中的一个重要定理。如果p是一个质数，而整数a不是p的倍数，则有a^(p-1) ≡1(mod p)。</p>
+                </div>
+                <br />
+                <div class="text text-border">
+                    <p class="red">为了快速的进行幂运算，下面引入快速幂算法。</p>
+                    <p>快速幂算先把幂转换为二进制的和，然后每一步都把指数分成两半，而相应的底数做平方运算。这样不仅能把非常大的指数给不断变小，所需要执行的循环次数也变小，而最后表示的结果却一直不会变。</p>
+                    <p>代码实现如下：</p>
+                    <p>int quick_pow(int x, int n)</p>
+                    <p>{</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;int res = 1;</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;while(n > 0) {</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(n & 1) res *= x;</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x *= x;</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n >>= 1; }</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;return res;</p>
+                    <p>}</p>
+                    <p><span class="text-back-gold">由于幂运算的结果通常非常大，所以建议开long long，并且要注意溢出的情况。</span></p>
+                </div>
             </div>
-                
         </div>
         <div class="space"></div>
     </div>
+    <footer>
+        <p>powered by Deng</p>
+    </footer>
     <script src="js/index.js"></script>
 </body>
 </html>
