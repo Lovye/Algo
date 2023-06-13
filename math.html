@@ -6,6 +6,7 @@
     <title>数论</title>
     <link rel="icon" href="https://icpc.global/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/general.css">
 </head>
 <body>
     <div id="nav">
@@ -25,8 +26,44 @@
             <button id="icpc" data-url="https://icpc.global/">ICPC</button>
         </div>
         <div id="context">
-            <img src="img/ACM图标.png" alt="" style="max-width: 100%;max-height: 15rem;">
+            <h3 class="text-shadow-blue">简介</h3>
+            <div class="text text-border">
+                <p>数学理论或在较旧的使用中，叫做算术，是专门研究整数的纯数学的分支。它有时被称为“数学女王”，
+                因为它在原理中的基础地位。数理论家研究质数以及由整数（例如有理数字）制成的对象的属性或定义为整数的概括（例如，代数整数）。</p>
+                <p>整数可以自己考虑或作为方程（Diophantine几何）的解决方案。通过研究以某种方式（分析数论）编码整数，素数或其他数论理论对象的分析对象
+                    （如Riemann zeta函数），通常最好地理解数论中的问题。人们还可以研究与有理数相关的实数，例如，由后者近似（Diophantine近似）。</p>
+                <p>数理论的较旧术语是算术。到二十世纪初，它被“数学理论”所取代（“算术”一词被普通大众用来表示“基本计算”，也在数学逻辑中获得了其他含义，
+                    如在数学理论中使用术语算术在二十世纪下半叶重新获得了一些地位，这可能部分是由于法国的影响力，特别是作为数理论的形容词，优选算术。</p>
+            </div>
+            <br />
+            <h3 class="text-shadow-blue">实用结论</h3>
+            <div>
+                <li class="orange">辗转相除法</li>
+                <div class="text text-border">
+                    <p>欧几里得算法又称辗转相除法，是指用于计算两个非负整数a，b的最大公约数。应用领域有数学和计算机两个方面。计算公式gcd(a,b) = gcd(b,a mod b)。</p>
+                    <p>两个整数的最大公约数是能够同时整除它们的最大的正整数。辗转相除法基于如下原理：两个整数的最大公约数等于其中较小的数和两数相除余数的最大公约数。</p>
+                    <p>欧几里得算法和扩展欧几里得算法可使用多种编程语言实现。</p>
+                </div>
+                <br />
+                <div class="text text-border">
+                    <p>算法实现：</p>
+                    <p class="red">因为递归实现比较方便，所以这里以递归的方式来实现</p>
+                    <p>int gcd(int a, int b)</p>
+                    <p>{</p>
+                    <p>&nbsp&nbsp&nbsp&nbsp  if(a % b == 0) return b;</p>
+                    <p>&nbsp&nbsp&nbsp&nbsp  else return gcd(b, a % b);</p>
+                    <p>}</p>
+                    <p>另一种等价写法</p>
+                    <p>int gcd(int a, int b)</p>
+                    <p>{</p>
+                    <p>&nbsp&nbsp&nbsp&nbsp  if(b == 0) return a;</p>
+                    <p>&nbsp&nbsp&nbsp&nbsp  else return gcd(b, a % b);</p>
+                    <p>}</p>
+                </div>
+            </div>
+                
         </div>
+        <div class="space"></div>
     </div>
     <script src="js/index.js"></script>
 </body>
