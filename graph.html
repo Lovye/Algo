@@ -26,10 +26,65 @@
             <button id="icpc" data-url="https://icpc.global/">ICPC</button>
         </div>
         <div id="context">
-            <img src="img/ACM图标.png" alt="" style="max-width: 100%;max-height: 15rem;">
+           <h3 class="text-shadow-purple">简介</h3>
+           <div class="text border">
+                <p>图论〔Graph Theory〕是数学的一个分支。它以图为研究对象。图论中的图是由若干给定的点及连接两点的线所构成的图形，
+                    这种图形通常用来描述某些事物之间的某种特定关系，用点代表事物，用连接两点的线表示相应两个事物间具有这种关系。</p>
+                <p class="red">关于图的基本概念可以去离散数学中学习,下面介绍存图方式和算法中有关图的五个基础算法。</p>
+           </div>
+           <br />
+           <li class="purple">邻接矩阵</li>
+           <div class="text text-border">
+                <p>假设图有V个点，E条边，边E的两个端点分别为u，v。先声明一个V * V大小的数组，初始化为INF，表示不相连。在无向图中，如果u，v有边相连，
+                    那么数组中uv，和vu都赋值为1，表示相连。在有向图中只需要把从u到v的uv赋值为1就行。对于带权图，我们只需要把1改为对应的权值就行。
+                </p>
+           </div>
+           <li class="purple">邻接表</li>
+           <div class="text text-border">
+                <p>和邻接表类似，但是邻接表是用结构体存每一条边，然后声明一个vector数组，数组的大小就是点的个数，如果从u到v有边，我们就把这个边加入到点u，
+                    无向边的情况下只需要在另一个顶点再操作一次即可。
+                </p>
+                <p><span class="text-back-gold">还有一种比较好的存图方式是链式前向星，感兴趣的同学可以去学习一下。</span></p>
+           </div>
+           <li class="purple">bellman-ford</li>
+           <div class="text text-border">
+                <p>bellman-ford算法用于求解从一点出发到另一点的最短距离。这个算法的具体思路就是，首先把从这一点到其他所有点的距离设置为INF
+                    然后从这一点开始寻找距离这个点的最近点(第一次操作的时候最近的点就是这个起点)，然后开始计算与这个点相连的另一个点的距离，
+                    如果这个距离比已经得出来的最短距离短(第一次操作时所有点都是INF，所以必然会更新)，那么我们就更新最短距离。对于已经使用过的点，
+                    我们进行标记，不再使用。重复这个操作直到无法更新为止算法结束。
+                </p>
+           </div>
+           <li class="purple">dijkstra</li>
+           <div class="text text-border">
+                <p>dijkstra算法和bellman-ford算法实现的思路差不多，但是dijkstra算法通过优先队列去优化每次查找距离最近的相邻点。
+                    将算法的复杂度从O(V E)优化为O(E logV)。
+                </p>
+           </div>
+           <li class="purple">floyd-warshall</li>
+           <div class="text text-border">
+                <p>floyd-warshall算法通过动态规划的方法得到任意两点之间的最短距离。</p>
+                <p>状态转移方程为dp[i][j] = min(dp[i][j], d[i][k] + d[k]d[j])</p>
+                <p>时间复杂度为O(V^3)</p>
+           </div>
+           <li class="purple">prime</li>
+           <div class="text text-border">
+                <p>prime算法和下面的kruskal算法都是求解最小生成树的算法。prime算法假设首先有一颗只有
+                    一个顶点v的树T，然后贪心的选取T和其他顶点之间相连的最小权值的边，并把他加入到T中。
+                    不断进行这个操作，最后得到的就是最小生成树了。
+                </p>
+           </div>
+           <li class="purple">kruskal</li>
+           <div class="text text-border">
+                <p>kruskal算法首先按照边的权值的顺序从小到大查看一遍，如果不产生圈，就把当前这条边
+                    加入到生成树中，最后得到的就是最小生成树。
+                </p>
+           </div>
         </div>
         <div class="space"></div>
     </div>
+    <footer>
+        <p>powered by Deng</p>
+    </footer>
     <script src="js/index.js"></script>
 </body>
 </html>

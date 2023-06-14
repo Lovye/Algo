@@ -43,7 +43,7 @@
                 <li>upper bound</li>
                 <p class="text-border">
                     给定一个有序的数组 nums[n] (假设为升序的，降序的同理)，查找nums[i] <= 目标值的最大下标i。分别设置左右边界为 l = 0, r = n - 1。
-                    每次取左右边界的中点 mid = (l + r) / 2。如果 nums[mid] <= 目标值，那么就更新有边界 r = mid；否则更新左边界 l = mid。不断重复
+                    每次取左右边界的中点 mid = (l + r) / 2。如果 nums[mid] <= 目标值，那么就更新右边界 r = mid；否则更新左边界 l = mid。不断重复
                     操作，直到 r - l < 1。
                 </p>
                 <li>lower bound</li>
@@ -74,7 +74,7 @@
             <h3 class="text-shadow-white">BFS（宽度优先搜索）</h3>
             <div class="text">
                 <p class="border">BFS和DFS类似，所不同的就是每次的状态转移，DFS是从一个状态不断的往下搜索，
-                    直到无法搜索了再改变状态继续搜索。BFS则是从一个状态出发，不断的搜索最近的状态，然后不断的
+                    直到无法搜索了再改变状态继续搜索。BFS则是从一个状态出发，搜索最近的状态，然后不断的
                     向外搜索。
                 </p>
             </div>
