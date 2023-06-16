@@ -6,11 +6,6 @@ window.onload = function(){
                 window.location.assign(button[i].dataset.url);
             });
         }
-        else{
-            button[i].addEventListener('click',function(){
-                window.open(button[i].dataset.url);
-            })
-        }
     }
 
     let nav = document.getElementById('nav').getElementsByTagName('button');

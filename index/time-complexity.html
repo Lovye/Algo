@@ -7,6 +7,8 @@
     <link rel="icon" href="https://icpc.global/favicon.ico">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/general.css">
+    <link href="https://www.w3school.com.cn/lib/bs/bootstrap.css" rel="stylesheet">
+    <script src="https://www.w3school.com.cn/lib/bs/bootstrap.js"></script>
 </head>
 <body>
     <div id="nav">
@@ -18,12 +20,26 @@
         <button id="graph" data-url="../graph.html">图论</button>
     </div>
     <div id="content">
-        <div id="left">
+        <div id="left" class="dropdown">
             <button id="welcome" data-url="../index.html">欢迎</button>
             <button id="about" data-url="about.html">关于ACM</button>
-            <button id="time-complexity" data-url="">算法复杂度</button>
-            <button id="board-xcpc" data-url="https://board.xcpcio.com/">Board-XCPC</button>
-            <button id="icpc" data-url="https://icpc.global/">ICPC</button>
+            <button id="time-complexity" data-url="time-complexity.html">算法复杂度</button>
+            <div class="dropdown">
+                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false" style="font-size: small;">
+                    相关网站
+                </button>
+                <ul class="dropdown-menu" style="font-size: small;">
+                    <li><a class="dropdown-item" href="https://board.xcpcio.com/">Board-XCPC</a></li>
+                    <li><a class="dropdown-item" href="https://icpc.global/">ICPC</a></li>
+                    <li><a class="dropdown-item" href="https://oi-wiki.org/">OIWiki</a></li>
+                    <li><a class="dropdown-item" href="https://codeforces.com/">Codeforces</a></li>
+                    <li><a class="dropdown-item" href="https://ac.nowcoder.com/">牛客</a></li>
+                    <li><a class="dropdown-item" href="https://www.luogu.com.cn/">洛谷</a></li>
+                    <li><a class="dropdown-item" href="https://leetcode.cn/">力扣</a></li>
+                    <li><a class="dropdown-item" href="http://39.101.69.154">NENUOJ</a></li>
+                </ul>
+            </div>
         </div>
         <div id="context">
             <h3 class="blue">简介</h3>

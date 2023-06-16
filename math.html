@@ -7,6 +7,8 @@
     <link rel="icon" href="https://icpc.global/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/general.css">
+    <link href="https://www.w3school.com.cn/lib/bs/bootstrap.css" rel="stylesheet">
+    <script src="https://www.w3school.com.cn/lib/bs/bootstrap.js"></script>
 </head>
 <body>
     <div id="nav">
@@ -18,12 +20,26 @@
         <button id="graph" data-url="graph.html">图论</button>
     </div>
     <div id="content">
-        <div id="left">
+        <div id="left" class="dropdown">
             <button id="welcome" data-url="index.html">欢迎</button>
             <button id="about" data-url="index/about.html">关于ACM</button>
             <button id="time-complexity" data-url="index/time-complexity.html">算法复杂度</button>
-            <button id="board-xcpc" data-url="https://board.xcpcio.com/">Board-XCPC</button>
-            <button id="icpc" data-url="https://icpc.global/">ICPC</button>
+            <div class="dropdown">
+                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false" style="font-size: small;">
+                    相关网站
+                </button>
+                <ul class="dropdown-menu" style="font-size: small;">
+                    <li><a class="dropdown-item" href="https://board.xcpcio.com/">Board-XCPC</a></li>
+                    <li><a class="dropdown-item" href="https://icpc.global/">ICPC</a></li>
+                    <li><a class="dropdown-item" href="https://oi-wiki.org/">OIWiki</a></li>
+                    <li><a class="dropdown-item" href="https://codeforces.com/">Codeforces</a></li>
+                    <li><a class="dropdown-item" href="https://ac.nowcoder.com/">牛客</a></li>
+                    <li><a class="dropdown-item" href="https://www.luogu.com.cn/">洛谷</a></li>
+                    <li><a class="dropdown-item" href="https://leetcode.cn/">力扣</a></li>
+                    <li><a class="dropdown-item" href="http://39.101.69.154">NENUOJ</a></li>
+                </ul>
+            </div>
         </div>
         <div id="context">
             <h3 class="text-shadow-blue">简介</h3>
@@ -49,17 +65,17 @@
                 <div class="text text-border">
                     <p>算法实现：</p>
                     <p><span class="text-back-gold">因为递归实现比较方便，所以这里以递归的方式来实现</span></p>
-                    <p>int gcd(int a, int b)</p>
-                    <p>{</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;  if(a % b == 0) return b;</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;  else return gcd(b, a % b);</p>
-                    <p>}</p>
+                    <p><code>int gcd(int a, int b)</code></p>
+                    <p><code>{</code></p>
+                    <p><code>if(a % b == 0) return b;</code></p>
+                    <p><code>else return gcd(b, a % b);</code></p>
+                    <p><code>}</code></p>
                     <p>另一种等价写法</p>
-                    <p>int gcd(int a, int b)</p>
-                    <p>{</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;  if(b == 0) return a;</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;  else return gcd(b, a % b);</p>
-                    <p>}</p>
+                    <p><code>int gcd(int a, int b)</code></p>
+                    <p><code>{</code></p>
+                    <p><code>if(b == 0) return a;</code></p>
+                    <p><code>else return gcd(b, a % b);</code></p>
+                    <p><code>}</code></p>
                 </div>
                 <li class="purple">算数基本定理</li>
                 <div class="text text-border">
@@ -79,13 +95,14 @@
                         可以知道，我们用来整除的数字必定是质数。
                     </span></p>
                     <p>实现的代码如下：</p>
-                    <p>int n;<span class="blue">//给定的整数n</span></p>
-                    <p>int i = 2;</p>
-                    <p>while(n > 1)</p>
-                    <p>{</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;if(n % i == 0) { printf("%d ", i)); n /= i; } </p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;else i++;</p>
-                    <p>}</p>
+                    <p><code>int n;</code><span class="blue">//给定的整数n</span></p>
+                    <p><code>int i = 2;</code></p>
+                    <p><code>while(n > 1) {</code></p>
+                    <p><code>if(n % i == 0) {</code></p>
+                    <p><code>printf("%d ", i);</code></p>
+                    <p><code> n /= i; }</code></p>
+                    <p><code>else i++;</code></p>
+                    <p><code>}</code></p>
                     <p>这里只给出了粗略的代码，具体细节可以自己优化</p>
                 </div>
                 <li class="purple">埃氏筛法</li>
@@ -105,18 +122,18 @@
                     </p>
                     <p><span class="text-back-gold">还有一种更优的算法，欧拉筛，时间复杂度为O(n)，有兴趣的同学可以去了解。</span></p>
                     <p>实现的代码如下：</p>
-                    <p>int n;<span class="blue">//要检查的n个数字</span></p>
-                    <p>bool isprime[n + 1];</p>
-                    <p>void sieve()</p>
-                    <p>{</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;for(int i = 1; i <= n; i++) isprime[i] = true;</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;isprime[1] = false;</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;for(int i = 2; i <= n; i++)</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;{</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isprime[i]) {</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int j = 2; i * j <= n; j++) isprime[i * j] = false; }</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
-                    <p>}</p>
+                    <p><code>int n;</code><span class="blue">//要检查的n个数字</span></p>
+                    <p><code>bool isprime[n + 1];</code></p>
+                    <p><code>void sieve()</code></p>
+                    <p><code>{</code></p>
+                    <p><code>for(int i = 1; i <= n; i++) isprime[i] = true;</code></p>
+                    <p><code>isprime[1] = false;</code></p>
+                    <p><code>for(int i = 2; i <= n; i++) {</code></p>
+                    <p><code></code></p>
+                    <p><code>if(isprime[i]) for(int j = 2; i * j <= n; j++) isprime[i * j] = false;</code></p>
+                    <p><code></code></p>
+                    <p><code>}</code></p>
+                    <p><code>}</code></p>
                 </div>
                 <li class="purple">哥德巴赫猜想</li>
                 <div class="text text-border">
@@ -136,15 +153,15 @@
                     <p class="red">为了快速的进行幂运算，下面引入快速幂算法。</p>
                     <p>快速幂算先把幂转换为二进制的和，然后每一步都把指数分成两半，而相应的底数做平方运算。这样不仅能把非常大的指数给不断变小，所需要执行的循环次数也变小，而最后表示的结果却一直不会变。</p>
                     <p>代码实现如下：</p>
-                    <p>int quick_pow(int x, int n)</p>
-                    <p>{</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;int res = 1;</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;while(n > 0) {</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(n & 1) res *= x;</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x *= x;</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n >>= 1; }</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;return res;</p>
-                    <p>}</p>
+                    <p><code>int quick_pow(int x, int n)</code></p>
+                    <p><code>{</code></p>
+                    <p><code>int res = 1;</code></p>
+                    <p><code>while(n > 0) {</code></p>
+                    <p><code>if(n & 1) res *= x;</code></p>
+                    <p><code>x *= x;</code></p>
+                    <p><code>n >>= 1; }</code></p>
+                    <p><code>return res;</code></p>
+                    <p><code>}</code></p>
                     <p><span class="text-back-gold">由于幂运算的结果通常非常大，所以建议开long long，并且要注意溢出的情况。</span></p>
                 </div>
             </div>

@@ -7,6 +7,8 @@
     <link rel="icon" href="https://icpc.global/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/general.css">
+    <link href="https://www.w3school.com.cn/lib/bs/bootstrap.css" rel="stylesheet">
+    <script src="https://www.w3school.com.cn/lib/bs/bootstrap.js"></script>
 </head>
 <body>
     <div id="nav">
@@ -18,12 +20,26 @@
         <button id="graph" data-url="graph.html">图论</button>
     </div>
     <div id="content">
-        <div id="left">
+        <div id="left" class="dropdown">
             <button id="welcome" data-url="index.html">欢迎</button>
             <button id="about" data-url="index/about.html">关于ACM</button>
             <button id="time-complexity" data-url="index/time-complexity.html">算法复杂度</button>
-            <button id="board-xcpc" data-url="https://board.xcpcio.com/">Board-XCPC</button>
-            <button id="icpc" data-url="https://icpc.global/">ICPC</button>
+            <div class="dropdown">
+                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false" style="font-size: small;">
+                    相关网站
+                </button>
+                <ul class="dropdown-menu" style="font-size: small;">
+                    <li><a class="dropdown-item" href="https://board.xcpcio.com/">Board-XCPC</a></li>
+                    <li><a class="dropdown-item" href="https://icpc.global/">ICPC</a></li>
+                    <li><a class="dropdown-item" href="https://oi-wiki.org/">OIWiki</a></li>
+                    <li><a class="dropdown-item" href="https://codeforces.com/">Codeforces</a></li>
+                    <li><a class="dropdown-item" href="https://ac.nowcoder.com/">牛客</a></li>
+                    <li><a class="dropdown-item" href="https://www.luogu.com.cn/">洛谷</a></li>
+                    <li><a class="dropdown-item" href="https://leetcode.cn/">力扣</a></li>
+                    <li><a class="dropdown-item" href="http://39.101.69.154">NENUOJ</a></li>
+                </ul>
+            </div>
         </div>
         <div id="context">
             <h3 class="text-shadow-white">二分搜索</h3>
@@ -36,26 +52,24 @@
             </div>
             <div class="text">
                 <li>binary search(最基础的二分)</li>
-                <p class="text-border">给定一个有序的数组 nums[n] (假设为升序的，降序的同理)，查找目标值。分别设置左右边界为数组的两端，l = 0, r = n - 1。每次取得左右边界
-                    的中点 mid = (l + r) / 2。如果目标值恰好等于 nums[mid] 就退出循环；如果目标值大于了 nums[mid] ，那么可以知道在小于mid的区间的数都比目标值小，就更新左区间, l = mid + 1；否则更新右区间 r = mid - 1。不断重复
-                    这个过程，直到 l > r。
+                <p class="text-border">给定一个有序的数组 <code>nums[n]</code> (假设为升序的，降序的同理)，查找目标值。分别设置左右边界为数组的两端，<code>l = 0, r = n - 1</code>。每次取得左右边界
+                    的中点 <code>mid = (l + r) / 2</code>。如果目标值恰好等于 <code>nums[mid]</code> 就退出循环；如果目标值大于了 <code>nums[mid]</code> ，那么可以知道在小于mid的区间的数都比目标值小，就更新左区间, <code>l = mid + 1</code>；否则更新右区间 <code>r = mid - 1</code>。不断重复
+                    这个过程，直到 <code>l > r</code>。
                 </p>
                 <li>upper bound</li>
                 <p class="text-border">
-                    给定一个有序的数组 nums[n] (假设为升序的，降序的同理)，查找nums[i] <= 目标值的最大下标i。分别设置左右边界为 l = 0, r = n - 1。
-                    每次取左右边界的中点 mid = (l + r) / 2。如果 nums[mid] <= 目标值，那么就更新右边界 r = mid；否则更新左边界 l = mid。不断重复
-                    操作，直到 r - l < 1。
+                    给定一个有序的数组 <code>nums[n]</code> (假设为升序的，降序的同理)，查找<code>nums[i] <= 目标值的最大下标i</code>。分别设置左右边界为 <code>l = 0, r = n - 1</code>。
+                    每次取左右边界的中点 <code>mid = (l + r) / 2</code>。如果 <code>nums[mid] <= 目标值</code>，那么就更新右边界 <code>r = mid</code>；否则更新左边界 <code>l = mid</code>。不断重复
+                    操作，直到 <code>r - l < 1</code>。
                 </p>
                 <li>lower bound</li>
                 <p class="text-border">
-                    给定一个有序的数组 nums[n] (假设为升序的，降序的同理)，查找nums[i] >= 目标值的最小下标i。分别设置左右边界为 l = 0, r = n - 1。
-                    每次取左右边界的中点 mid = (l + r) / 2。如果 nums[mid] >= 目标值，那么就更新有边界 r = mid；否则更新左边界 l = mid。不断重复
-                    操作，直到 r - l < 1。 
+                    给定一个有序的数组 <code>nums[n]</code> (假设为升序的，降序的同理)，<code>查找nums[i] >= 目标值的最小下标i</code>。分别设置左右边界为 <code>l = 0, r = n - 1</code>。
+                    每次取左右边界的中点 <code>mid = (l + r) / 2</code>。如果 <code>nums[mid] >= 目标值</code>，那么就更新右边界 <code>r = mid</code>；否则更新左边界 <code>l = mid</code>。不断重复
+                    操作，直到 <code>r - l < 1</code>。 
                 </p>
-                <br />
                 <p>如果想要详细学习请移步到<a href="http://t.csdn.cn/Fkofy" target="_blank">算法入门之穷竭搜索</a>我会不定期更新</p>
             </div>
-            <br />
             <h3 class="text-shadow-white">DFS（深度优先搜索）</h3>
             <div class="text">
                 <p class="border">DFS是学习搜索过程中绕不开的一个知识，虽然for循环也能实现搜索的操作，
@@ -65,12 +79,10 @@
                 </p>
             </div>
             <div class="text">
-                <br />
                 <p class="text-border">DFS本质上是一种状态的转移，从一个状态转移到另一个状态，从而不断的搜索
                     问题的所有状态，时间复杂度为O(m ^ n)。其中m为状态数，n为数据的个数。
                 </p>
             </div>
-            <br />
             <h3 class="text-shadow-white">BFS（宽度优先搜索）</h3>
             <div class="text">
                 <p class="border">BFS和DFS类似，所不同的就是每次的状态转移，DFS是从一个状态不断的往下搜索，
@@ -78,7 +90,6 @@
                     向外搜索。
                 </p>
             </div>
-            <br />
             <div class="text">
                 <p class="text-border">BFS通常会配合队列使用，用队列来存储已经搜索的状态，使用这个状态的时候
                     就将其弹出队列。

@@ -7,6 +7,8 @@
     <link rel="icon" href="https://icpc.global/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/general.css">
+    <link href="https://www.w3school.com.cn/lib/bs/bootstrap.css" rel="stylesheet">
+    <script src="https://www.w3school.com.cn/lib/bs/bootstrap.js"></script>
 </head>
 <body>
     <div id="nav">
@@ -18,12 +20,26 @@
         <button id="graph" data-url="graph.html">图论</button>
     </div>
     <div id="content">
-        <div id="left">
+        <div id="left" class="dropdown">
             <button id="welcome" data-url="index.html">欢迎</button>
             <button id="about" data-url="index/about.html">关于ACM</button>
             <button id="time-complexity" data-url="index/time-complexity.html">算法复杂度</button>
-            <button id="board-xcpc" data-url="https://board.xcpcio.com/">Board-XCPC</button>
-            <button id="icpc" data-url="https://icpc.global/">ICPC</button>
+            <div class="dropdown">
+                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false" style="font-size: small;">
+                    相关网站
+                </button>
+                <ul class="dropdown-menu" style="font-size: small;">
+                    <li><a class="dropdown-item" href="https://board.xcpcio.com/">Board-XCPC</a></li>
+                    <li><a class="dropdown-item" href="https://icpc.global/">ICPC</a></li>
+                    <li><a class="dropdown-item" href="https://oi-wiki.org/">OIWiki</a></li>
+                    <li><a class="dropdown-item" href="https://codeforces.com/">Codeforces</a></li>
+                    <li><a class="dropdown-item" href="https://ac.nowcoder.com/">牛客</a></li>
+                    <li><a class="dropdown-item" href="https://www.luogu.com.cn/">洛谷</a></li>
+                    <li><a class="dropdown-item" href="https://leetcode.cn/">力扣</a></li>
+                    <li><a class="dropdown-item" href="http://39.101.69.154">NENUOJ</a></li>
+                </ul>
+            </div>
         </div>
         <div id="context">
             <h3 class="text-shadow-red">什么是动态规划</h3>
@@ -80,8 +96,8 @@
             <br />
             <h3 class="text-shadow-red">斐波那契数列</h3>
             <div class="text text-border">
-                <p>斐波那契数列可以说是最简单的dp，也是所有动态规划的始祖。状态转移方程也是其本身的定义：f[i] = f[i - 1] + f[i - 2]。</p>
-                <p>与之类似的有兔子繁衍问题，爬梯子问题等。其状态转移方程都是 f[i] = f[i - 1] + f[i - 2]。</p>
+                <p>斐波那契数列可以说是最简单的dp，也是所有动态规划的始祖。状态转移方程也是其本身的定义：<code>f[i] = f[i - 1] + f[i - 2]</code>。</p>
+                <p>与之类似的有兔子繁衍问题，爬梯子问题等。其状态转移方程都是 <code>f[i] = f[i - 1] + f[i - 2]</code>。</p>
                 <p>下面简单的对爬梯子问题进行解释：</p>
                 <p>当人在第i阶梯子的时候，我们知道可以从第i - 1阶梯子到第i阶梯子，也可以从第i - 2阶梯子到第i阶梯子。
                     所以我们得到了状态i可以由状态i - 1和状态i - 2转移得到，把两者相加就是到第i阶梯子的方案数。
@@ -93,8 +109,8 @@
                 <p>01背包的问题描述为：</p>
                 <p>有N件物品和一个容量为V的背包。第i件物品的体积是c[i]，价值是w[i]。求解将物品装入背包价值总和最大是多少。</p>
                 <p>我们用 f[i + 1][j] 表示从0到i + 1个物品中选出总重量不超过j的物品时总价值的最大值。</p>
-                <p>我们可以得到状态转移方程 f[ i + 1 ][ j ] = f[ i ][ j ]（选第i个物品后超出了背包大小）</p>
-                <p>以及 f[ i + 1 ][ j ] = max( f[ i ][ j ], f[ i ][ j - w[ i ] ] + v[ i ] ) （选第i个物品和不选第i个中取最大）</p>
+                <p>我们可以得到状态转移方程 <code>f[i + 1][j] = f[i][j]</code>（选第i个物品后超出了背包大小）</p>
+                <p>以及 <code>f[i + 1][j] = max(f[i][j], f[i][j - w[i]] + v[i])</code> （选第i个物品和不选第i个中取最大）</p>
             </div>
         </div>
         <div class="space"></div>
